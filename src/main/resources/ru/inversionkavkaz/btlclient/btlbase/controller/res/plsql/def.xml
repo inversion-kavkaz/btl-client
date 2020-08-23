@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sql_expr_list>
+
+    <expression name="ik_btl_client.registerPartCancel" lang="PL/SQL">
+        <script><![CDATA[CALL ik_btl_client.registerPartCancel(:pITrnNum, :pCancelPart, :pCancelSumm, :pCancelCurrCode, :pCancelReasonCode,  :pCancelReasonMessage,  :outNewCancelPart,  :outErrorMessage) into :statusCode]]></script>
+        <parameters>
+            <parameter name="statusCode" mode="OUT" sqlType="BIGINT" javaType="Long" />
+            <parameter name="outNewCancelPart" mode="OUT" sqlType="BIGINT" javaType="Long" />
+            <parameter name="outErrorMessage" mode="OUT" sqlType="VARCHAR" javaType="String" />
+        </parameters>
+    </expression>
+
+    <expression name="ik_btl_client.getCancelRestInfo" lang="PL/SQL">
+        <script><![CDATA[CALL ik_btl_client.getCancelRestInfo(:pITrnNum, :outSumm, :outCancelPartCount)]]></script>
+        <parameters>
+            <parameter name="outSumm" mode="OUT" sqlType="DOUBLE" javaType="Double" />
+            <parameter name="outCancelPartCount" mode="OUT" sqlType="BIGINT" javaType="Long" />
+        </parameters>
+    </expression>
+
+</sql_expr_list>

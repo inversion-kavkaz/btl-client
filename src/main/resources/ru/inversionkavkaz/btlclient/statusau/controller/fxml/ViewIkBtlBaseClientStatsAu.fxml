@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import ru.inversion.fx.form.controls.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox prefHeight="400.0" prefWidth="800.0" spacing="5.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.inversionkavkaz.btlclient.statusau.controller.ViewIkBtlBaseClientStatsAuController">
+<children>
+<JInvToolBar fx:id="toolBar" />
+<JInvTable fx:id="IK_BTL_BASE_CLIENT_STATS_AU" tableMenuButtonVisible="true" VBox.vgrow="ALWAYS">
+<columns>
+<JInvTableColumnBigDecimal fx:id="ID" text="%ID" fieldName="ID"  />
+<JInvTableColumnBigDecimal fx:id="ITRNNUM" text="%ITRNNUM" fieldName="ITRNNUM"  />
+<JInvTableColumnBigDecimal fx:id="ICANCELPART" text="%ICANCELPART" fieldName="ICANCELPART"  />
+<JInvTableColumnDate fx:id="DATE_OP" text="%DATE_OP" fieldName="DATE_OP"  />
+<JInvTableColumnBigDecimal fx:id="STATUS_CODE" text="%STATUS_CODE" fieldName="STATUS_CODE"  />
+<JInvTableColumn fx:id="STATUS_MESSAGE" text="%STATUS_MESSAGE" fieldName="STATUS_MESSAGE" prefWidth="300.0" />
+<JInvTableColumn fx:id="USER_OP" text="%USER_OP" fieldName="USER_OP"  />
+</columns>
+<VBox.margin>
+<Insets bottom="5.0" left="5.0" right="5.0" />
+</VBox.margin>
+</JInvTable>
+</children>
+</VBox>

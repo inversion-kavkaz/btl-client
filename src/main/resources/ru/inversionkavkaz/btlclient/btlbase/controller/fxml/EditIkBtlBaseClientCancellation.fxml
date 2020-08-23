@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import ru.inversion.fx.form.controls.JInvButton?>
+<?import ru.inversion.fx.form.controls.JInvCURTextField?>
+<?import ru.inversion.fx.form.controls.JInvLabel?>
+<?import ru.inversion.fx.form.controls.JInvLongField?>
+<?import ru.inversion.fx.form.controls.JInvMoneyField?>
+<?import ru.inversion.fx.form.controls.JInvTextField?>
+
+<VBox prefHeight="202.0" prefWidth="754.0" spacing="5.0" xmlns="http://javafx.com/javafx/8.0.202" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.inversionkavkaz.btlclient.btlbase.controller.EditIkBtlBaseClientCancellationController">
+    <children>
+        <GridPane hgap="5.0" prefWidth="744.0" vgap="5.0" VBox.vgrow="ALWAYS">
+            <children>
+                <JInvLabel fx:id="lblICANCELPART" text="%ICANCELPART" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                <JInvLongField fx:id="ICANCELPART" fieldName="ICANCELPART" maxWidth="-Infinity" minWidth="100.0" prefColumnCount="0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <JInvLabel fx:id="lblMSUMM" text="%MSUMM" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+            <HBox alignment="CENTER_LEFT" spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <children>
+                      <JInvMoneyField fx:id="MSUMM" fieldName="MSUMM" maxWidth="-Infinity" prefColumnCount="10" />
+                      <JInvLabel fx:id="lblMSUMMREST" text="%MSUMMREST" />
+                      <JInvMoneyField fx:id="MSUMMREST" disable="true" fieldName="MSUMMCANCEL" maxWidth="-Infinity" prefColumnCount="10" />
+                      <JInvCURTextField fx:id="MSUMMRESTCURCODE" disable="true" fieldName="CCURCODE" maxWidth="-Infinity" />
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </HBox>
+                <JInvLabel fx:id="lblCCURCODE" text="%CCURCODE" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                <JInvCURTextField fx:id="CCURCODE" disable="true" fieldName="CCURCODE" maxWidth="-Infinity" prefColumnCount="3" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                <JInvLabel fx:id="lblCANCEL_REASON_CODE" text="%CANCEL_REASON_CODE" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                <JInvLongField fx:id="CANCEL_REASON_CODE" required="true" fieldName="CANCEL_REASON_CODE" maxWidth="-Infinity" minWidth="100.0" prefColumnCount="0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                <JInvLabel fx:id="lblCANCEL_REASON_MESSAGE" text="%CANCEL_REASON_MESSAGE" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+                <JInvTextField fx:id="CANCEL_REASON_MESSAGE" required="true" fieldName="CANCEL_REASON_MESSAGE" prefColumnCount="50" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            </children>
+            <columnConstraints>
+                <ColumnConstraints />
+                <ColumnConstraints hgrow="ALWAYS" />
+            </columnConstraints>
+            <VBox.margin>
+                <Insets />
+            </VBox.margin>
+            <rowConstraints>
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints minHeight="1.0" />
+            </rowConstraints>
+        </GridPane>
+        <ButtonBar buttonMinWidth="80.0">
+            <buttons>
+                <JInvButton fx:id="btSendCancelRequest" onAction="#onSendCancelRequest" text="Отправить запрос" />
+                <JInvButton fx:id="btCancel" text="%EDIT.CANCEL" />
+            </buttons>
+        </ButtonBar>
+    </children>
+    <padding>
+        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+    </padding>
+</VBox>

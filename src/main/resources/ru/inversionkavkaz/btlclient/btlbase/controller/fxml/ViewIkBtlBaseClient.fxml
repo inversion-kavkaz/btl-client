@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import ru.inversion.fx.form.controls.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import ru.inversion.fx.form.controls.dsbar.DSInfoBar?>
+<VBox prefHeight="400.0" prefWidth="800.0" spacing="5.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.inversionkavkaz.btlclient.btlbase.controller.ViewIkBtlBaseClientController">
+<children>
+    <MenuBar VBox.vgrow="NEVER">
+        <menus>
+            <Menu mnemonicParsing="false" text="Файл">
+                <items>
+                    <MenuItem mnemonicParsing="false" onAction="#onExit" text="Выход" />
+                </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Отчеты">
+                <items>
+                    <JInvMenuItem fx:id="printMenuItem" mnemonicParsing="false" text="Печать" onAction="#onPrint" />
+                </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Справочники">
+                <items>
+                    <MenuItem mnemonicParsing="false" onAction="#onShowLimits" text="Лимиты" />
+                    <MenuItem mnemonicParsing="false" onAction="#onShowRejectReasons" text="Причины отказа" />
+                    <MenuItem mnemonicParsing="false" onAction="#onShowCancelReasons" text="Причины аннулирования согласования" />
+                </items>
+            </Menu>
+        </menus>
+    </MenuBar>
+<JInvToolBar fx:id="toolBar" />
+<JInvTable fx:id="IK_BTL_BASE_CLIENT" tableMenuButtonVisible="true" VBox.vgrow="ALWAYS">
+<columns>
+<JInvTableColumn fx:id="ITRNNUM" text="%ITRNNUM" fieldName="ITRNNUM"  />
+<JInvTableColumnDate fx:id="CREATED" text="%CREATED" fieldName="CREATED" prefWidth="110" />
+<JInvTableColumn prefWidth="250" text="%STATUS" idF7FilterGroup="F7STATUS_GROUP">
+    <columns>
+        <JInvTableColumn fx:id="STATUS_CODE" fieldName="STATUS_CODE" text="%STATUS_CODE" prefWidth="30.0" idF7FilterGroup="F7STATUS_GROUP"/>
+        <JInvTableColumn fx:id="STATUS_MESSAGE" fieldName="STATUS_MESSAGE" text="%STATUS_MESSAGE"  prefWidth="150.0" idF7FilterGroup="F7STATUS_GROUP"/>
+        <JInvTableColumnDate fx:id="STATUS_DATE" dateFormat="DATE_TIME" fieldName="STATUS_DATE" text="%STATUS_DATE" prefWidth="110" idF7FilterGroup="F7STATUS_GROUP"/>
+    </columns>
+</JInvTableColumn>
+<!--<JInvTableColumn fx:id="reqTypeName" text="%REQ_TYPE" fieldName="reqTypeName"  />-->
+<JInvTableColumn fx:id="NUM" text="%NUM" fieldName="NUM"  />
+<JInvTableColumnDate fx:id="REQ_DATE" text="%REQ_DATE" fieldName="REQ_DATE" prefWidth="110" />
+<JInvTableColumnMoney fx:id="MSUMM" text="%MSUMM" fieldName="MSUMM"  />
+<JInvTableColumnMoney fx:id="MSUMMR" text="%MSUMMR" fieldName="MSUMMR"  />
+<JInvTableColumn fx:id="CCURCODE" text="%CCURCODE" fieldName="CCURCODE"  />
+<JInvTableColumn prefWidth="350" text="%CANCEL_AGREE" idF7FilterGroup="F7CANCEL_GROUP" >
+    <columns>
+        <JInvTableColumn fx:id="MSUMMCANCEL" fieldName="MSUMMCANCEL" text="%MSUMMCANCEL" idF7FilterGroup="F7CANCEL_GROUP" />
+        <JInvTableColumn fx:id="MSUMMCANCELPLAN" fieldName="MSUMMCANCELPLAN" text="%MSUMMCANCELPLAN" idF7FilterGroup="F7CANCEL_GROUP" />
+        <JInvTableColumn fx:id="ICANCELPARTCOUNT" fieldName="ICANCELPARTCOUNT" text="%ICANCELPARTCOUNT" idF7FilterGroup="F7CANCEL_GROUP" />
+    </columns>
+</JInvTableColumn>
+<JInvTableColumn fx:id="LIMIT_CODE" text="%LIMIT_CODE" fieldName="LIMIT_CODE" prefWidth="30" />
+<JInvTableColumn prefWidth="450.0" text="%PAYER" idF7FilterGroup="F7PAYER_GROUP">
+    <columns>
+        <JInvTableColumn fx:id="PAYER_NAME" fieldName="PAYER_NAME" prefWidth="200.0" text="%PAYER_NAME" idF7FilterGroup="F7PAYER_GROUP"/>
+        <JInvTableColumn fx:id="PAYER_INN" fieldName="PAYER_INN" text="%PAYER_INN" idF7FilterGroup="F7PAYER_GROUP"/>
+        <JInvTableColumn fx:id="PAYER_BANK_BIC" fieldName="PAYER_BANK_BIC" lovClassName="ru.inversionkavkaz.btlclient.entity.PIkBtlFog" text="%PAYER_BANK_BIC" idF7FilterGroup="F7PAYER_GROUP"/>
+    </columns>
+</JInvTableColumn>
+<JInvTableColumn prefWidth="350" text="%RECIP" idF7FilterGroup="F7RECIP_GROUP">
+    <columns>
+        <JInvTableColumn fx:id="RECIP_NAME" fieldName="RECIP_NAME" prefWidth="200.0" text="%RECIP_NAME" idF7FilterGroup="F7RECIP_GROUP"/>
+        <JInvTableColumn fx:id="RECIP_INN" fieldName="RECIP_INN" text="%RECIP_INN" idF7FilterGroup="F7RECIP_GROUP"/>
+    </columns>
+</JInvTableColumn>
+<JInvTableColumn fx:id="CPURPPLATVO" text="%CPURPPLATVO" fieldName="CPURPPLATVO" prefWidth="200.0" />
+<JInvTableColumn fx:id="REMOTE_TRANSACTION_ID" text="%REMOTE_TRANSACTION_ID" fieldName="REMOTE_TRANSACTION_ID"  />
+<JInvTableColumn prefWidth="250" text="%USER" idF7FilterGroup="F7USER_GROUP">
+    <columns>
+        <JInvTableColumn fx:id="CREATE_USR" fieldName="CREATE_USR" text="%CREATE_USR" idF7FilterGroup="F7USER_GROUP"/>
+        <JInvTableColumn fx:id="AGREE_USR" fieldName="AGREE_USR" text="%AGREE_USR" idF7FilterGroup="F7USER_GROUP"/>
+    </columns>
+</JInvTableColumn>
+</columns>
+<VBox.margin>
+<Insets bottom="5.0" left="5.0" right="5.0" />
+</VBox.margin>
+</JInvTable>
+    <DSInfoBar fx:id="IK_BTL_BASE_CLIENT$MARK">
+        <VBox.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" />
+        </VBox.margin>
+    </DSInfoBar>
+</children>
+</VBox>
